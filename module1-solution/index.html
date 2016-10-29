@@ -6,22 +6,37 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+       .no-border {  } 
+      .red-border { border: 2px solid red; }
+      .green-border { border: 2px solid green; }
     </style>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
   </head>
-<body>
-   <div class="container">
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
-
+          <!--
+          NOTE: I have completed the bonus task for empty items. So in my case an empty item is not counted.
+          So in my case a list with items "item 1, item2,,item3" will count as 3 items instead of 4
+          as i am not counting empty items.
+          -->
          <div class="form-group">
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control {{textboxBorder}}" ng-model="lunchItems">
          </div>
+         <h5>
+           <b>NOTE:</b> I have completed the bonus task for empty items. So in my case an empty item is <b>NOT</b> counted.
+          So in my case a list with items <b>"item 1, item2, ,item3"</b> will count as 3 items instead of 4 as i am <b>NOT</b> counting
+          empty items.
+        </h5>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="tooMuchButtonClicked()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message" style="color:{{messageColor}};">
            <!-- Your message can go here. -->
+           {{message}}
          </div>
    </div>
 
