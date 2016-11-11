@@ -30,6 +30,7 @@
     	narrowCtrl.found = [];
 
     	narrowCtrl.narrowDownResults = function() {
+            narrowCtrl.found = [];
     		if(narrowCtrl.searchTerm.trim() == "") {
     			narrowCtrl.errorMessage = "Nothing found";
     			return;	
