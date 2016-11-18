@@ -1,0 +1,15 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="home">Home</a></li>
+    <li><a ui-sref="categories">Categories</a></li>
+    <li class="active">{{itemsList.shortName}}</li>
+</ol>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+        Items For Category {{itemsList.shortName}}
+    </h3>
+  </div>
+  <div class="panel-body">
+    <items items="itemsList.items"></items>
+  </div>
+</div>
