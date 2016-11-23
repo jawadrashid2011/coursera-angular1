@@ -1,0 +1,84 @@
+<div class="container">
+    <div ng-if="!myInfoCtrl.info">
+        <h1 class="text-center">Not Signed Up Yet. <a ui-sref="public.signup"  class="link-color">Sign up now.</a></h1>
+    </div>
+    <div ng-if="myInfoCtrl.info">
+        <h1 class="text-center">Your Information</h1>
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>First Name:</b>
+                </div>
+                <div class="col-sm-9">
+                    {{myInfoCtrl.info.firstname}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>Last Name:</b>
+                </div>
+                <div class="col-sm-9">
+                    {{myInfoCtrl.info.lastname}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>Email:</b>
+                </div>
+                <div class="col-sm-9">
+                    {{myInfoCtrl.info.email}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-offset-2 col-sm-8" ng-if="myInfoCtrl.info.phone">
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>Phone:</b>
+                </div>
+                <div class="col-sm-9">
+                    {{myInfoCtrl.info.phone}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-offset-2 col-sm-8" ng-if="!myInfoCtrl.info.favdish">
+            <h3 class="text-center">No Favorite Dish Selected</h3>
+        </div>
+        <div class="col-sm-offset-2 col-sm-8" ng-if="myInfoCtrl.info.favdish">
+            <br><h3>Your favorite Dish details are as following:</h3>
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>Name:</b>
+                </div>
+                <div class="col-sm-9">
+                    {{myInfoCtrl.info.favoriteDishObj.name}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>Menu Code:</b>
+                </div>
+                <div class="col-sm-9">
+                    {{myInfoCtrl.info.favoriteDishObj.short_name}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>Description:</b>
+                </div>
+                <div class="col-sm-9">
+                    {{myInfoCtrl.info.favoriteDishObj.description}}
+                </div>
+            </div>
+            <div class="row" ng-if="myInfoCtrl.info.favoriteDishObj.image_present">
+                <div class="col-sm-12">
+                    <img class="img-responsive full-width" ng-src="https://jawad-restaurant.herokuapp.com/images/{{myInfoCtrl.info.favoriteDishObj.short_name}}.jpg" alt="{{myInfoCtrl.info.favoriteDishObj.name}}">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
